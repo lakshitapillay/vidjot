@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
 
+
 //load helper
 const {ensureAuthenticated} = require('../helpers/auth');
 
@@ -16,7 +17,8 @@ router.get('/', ensureAuthenticated, (req,res) => {
             res.render('ideas/index',{
                 ideas:ideas
             });
-        });
+        })
+        .catch(err => console.log(err));
     
 })
 
